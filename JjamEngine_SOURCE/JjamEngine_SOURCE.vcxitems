@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{70226f42-051c-49c3-8814-fa3045f1581e}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamTransform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamTransform.cpp" />
+  </ItemGroup>
+</Project>

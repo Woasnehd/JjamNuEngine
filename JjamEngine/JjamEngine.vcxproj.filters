@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{34d3413a-27a8-460c-9965-fb65c6353525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{189875c1-d156-4e9a-b608-75b5581b408a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="JjamPlayScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="JjamLoadScenes.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="JjamPlayer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="JjamEndScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="JjamStartScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="JjamBackground.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="JjamPlayScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamLoadScenes.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamPlayer.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamEndScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamStartScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamBackground.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

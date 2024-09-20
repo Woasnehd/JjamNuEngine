@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows_Editor", "Windows_Editor\Windows_Editor.vcxproj", "{3DB96B27-80F2-4B10-98B6-56CEE7499E61}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JjamEngine", "JjamEngine\JjamEngine.vcxproj", "{A121FAE7-C1E4-4DB8-BEC2-611C273EFE88}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JjamEngine_SOURCE", "JjamEngine_SOURCE\JjamEngine_SOURCE.vcxitems", "{70226F42-051C-49C3-8814-FA3045F1581E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DB96B27-80F2-4B10-98B6-56CEE7499E61}.Debug|x64.ActiveCfg = Debug|x64
+		{3DB96B27-80F2-4B10-98B6-56CEE7499E61}.Debug|x64.Build.0 = Debug|x64
+		{3DB96B27-80F2-4B10-98B6-56CEE7499E61}.Debug|x86.ActiveCfg = Debug|Win32
+		{3DB96B27-80F2-4B10-98B6-56CEE7499E61}.Debug|x86.Build.0 = Debug|Win32
+		{3DB96B27-80F2-4B10-98B6-56CEE7499E61}.Release|x64.ActiveCfg = Release|x64
+		{3DB96B27-80F2-4B10-98B6-56CEE7499E61}.Release|x64.Build.0 = Release|x64
+		{3DB96B27-80F2-4B10-98B6-56CEE7499E61}.Release|x86.ActiveCfg = Release|Win32
+		{3DB96B27-80F2-4B10-98B6-56CEE7499E61}.Release|x86.Build.0 = Release|Win32
+		{A121FAE7-C1E4-4DB8-BEC2-611C273EFE88}.Debug|x64.ActiveCfg = Debug|x64
+		{A121FAE7-C1E4-4DB8-BEC2-611C273EFE88}.Debug|x64.Build.0 = Debug|x64
+		{A121FAE7-C1E4-4DB8-BEC2-611C273EFE88}.Debug|x86.ActiveCfg = Debug|Win32
+		{A121FAE7-C1E4-4DB8-BEC2-611C273EFE88}.Debug|x86.Build.0 = Debug|Win32
+		{A121FAE7-C1E4-4DB8-BEC2-611C273EFE88}.Release|x64.ActiveCfg = Release|x64
+		{A121FAE7-C1E4-4DB8-BEC2-611C273EFE88}.Release|x64.Build.0 = Release|x64
+		{A121FAE7-C1E4-4DB8-BEC2-611C273EFE88}.Release|x86.ActiveCfg = Release|Win32
+		{A121FAE7-C1E4-4DB8-BEC2-611C273EFE88}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B021EEC4-50E4-4A9A-93D1-338372252FB4}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		JjamEngine_SOURCE\JjamEngine_SOURCE.vcxitems*{3db96b27-80f2-4b10-98b6-56cee7499e61}*SharedItemsImports = 4
+		JjamEngine_SOURCE\JjamEngine_SOURCE.vcxitems*{70226f42-051c-49c3-8814-fa3045f1581e}*SharedItemsImports = 9
+		JjamEngine_SOURCE\JjamEngine_SOURCE.vcxitems*{a121fae7-c1e4-4db8-bec2-611c273efe88}*SharedItemsImports = 4
+	EndGlobalSection
+EndGlobal

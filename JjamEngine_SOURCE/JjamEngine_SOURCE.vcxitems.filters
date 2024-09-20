@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamSceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamGameObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamTransform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamSceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamGameObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamTransform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{662f8b11-3321-4949-83a6-eab5e6fb68d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{9d11b1dc-9dce-491c-8637-7b1d80a98cec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{b10e4ca1-bc9a-45bf-8262-c323f0b3a495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{b820e30a-8b6d-499b-bd11-f3e1f3b72e47}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
