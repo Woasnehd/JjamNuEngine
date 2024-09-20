@@ -51,5 +51,8 @@ namespace Jjam
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+
+		wchar_t str[50] = L"PlayScene";
+		TextOut(hdc, 0, 20, str, 9);
 	}
 }
