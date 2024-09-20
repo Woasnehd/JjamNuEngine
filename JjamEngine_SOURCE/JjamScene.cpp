@@ -3,9 +3,14 @@
 namespace Jjam
 {
 	Scene::Scene()
-		: mGameObjects{}
+		: mLayers{}
 	{
-
+		mLayers.resize((UINT)eLayerType::Max);
+		
+		for (size_t i = 0; i < (UINT)eLayerType::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
 	}
 
 	Scene::~Scene()
@@ -15,30 +20,49 @@ namespace Jjam
 
 	void Scene::Initialize()
 	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr) {
+				continue;
+			}
 
+			layer->Initialize();
+		}
 	}
 
 	void Scene::Update()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Update();
+			if (layer == nullptr) {
+				continue;
+			}
+
+			layer->Update();
 		}
 	}
 
 	void Scene::LateUpdate()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->LateUpdate();
+			if (layer == nullptr) {
+				continue;
+			}
+
+			layer->LateUpdate();
 		}
 	}
 
 	void Scene::Render(HDC hdc)
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Render(hdc);
+			if (layer == nullptr) {
+				continue;
+			}
+
+			layer->Render(hdc);
 		}
 	}
 
@@ -52,8 +76,8 @@ namespace Jjam
 
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::AddGameObject(GameObject* gameObject, eLayerType type)
 	{
-		mGameObjects.push_back(gameObject);
+		mLayers[(UINT)type]->AddGameObject(gameObject);
 	}
 }

@@ -29,7 +29,7 @@ namespace Jjam {
 		sr->SetName(L"SR");
 		sr->ImageLoad(L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Ending_Background.png");
 
-		AddGameObject(ebg);
+		AddGameObject(ebg, eLayerType::Background);
 	}
 
 	void EndScene::Update()

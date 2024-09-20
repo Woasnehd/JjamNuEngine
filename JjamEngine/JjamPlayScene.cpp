@@ -31,7 +31,7 @@ namespace Jjam
 		sr->SetName(L"SR");
 		sr->ImageLoad(L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Playing_Background.png");
 
-		AddGameObject(pbg);
+		AddGameObject(pbg, eLayerType::Background);
 	}
 
 	void PlayScene::Update()

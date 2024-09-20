@@ -1,6 +1,7 @@
 #pragma once
 #include "JjamEntity.h"
 #include "JjamGameObject.h"
+#include "JjamLayer.h"
 
 namespace Jjam
 {
@@ -18,9 +19,9 @@ namespace Jjam
 		virtual void OnEnter();
 		virtual void OnExit();
 
-		void AddGameObject(GameObject* gameObject);
+		void AddGameObject(GameObject* gameObject, eLayerType type);
 
 	private:
-		vector<GameObject*> mGameObjects;
+		vector<Layer*> mLayers;
 	};
 }

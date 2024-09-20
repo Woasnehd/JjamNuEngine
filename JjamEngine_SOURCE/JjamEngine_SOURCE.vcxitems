@@ -18,8 +18,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamResources.h" />
@@ -35,6 +37,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamResources.cpp" />

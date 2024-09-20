@@ -18,6 +18,6 @@ namespace Jjam
 		void OnExit() override;
 
 	private:
-		class Background* pbg
+		class Background* pbg;
 	};
 }

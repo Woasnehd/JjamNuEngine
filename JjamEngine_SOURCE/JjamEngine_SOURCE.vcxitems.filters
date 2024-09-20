@@ -22,6 +22,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamApplication.h" />
@@ -48,6 +51,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamEnums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -61,6 +70,9 @@
     </Filter>
     <Filter Include="GameObject">
       <UniqueIdentifier>{b820e30a-8b6d-499b-bd11-f3e1f3b72e47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{3e863ac3-1e22-4ddb-83c9-a6de085a7c41}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
