@@ -42,6 +42,16 @@ namespace Jjam
 		}
 	}
 
+	void Scene::OnEnter()
+	{
+
+	}
+
+	void Scene::OnExit()
+	{
+
+	}
+
 	void Scene::AddGameObject(GameObject* gameObject)
 	{
 		mGameObjects.push_back(gameObject);

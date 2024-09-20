@@ -21,7 +21,7 @@ namespace Jjam
 
 	void PlayScene::Initialize()
 	{
-		Background* pbg = new Background();
+		pbg = new Background();
 
 		Transform* tr = pbg->AddComponent<Transform>();
 		tr->SetPos(Vector2(0, 0));
@@ -54,5 +54,15 @@ namespace Jjam
 
 		wchar_t str[50] = L"PlayScene";
 		TextOut(hdc, 0, 20, str, 9);
+	}
+	void PlayScene::OnEnter()
+	{
+
+	}
+
+	void PlayScene::OnExit()
+	{
+		Transform* tr = pbg->AddComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
 	}
 }

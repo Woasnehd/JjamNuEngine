@@ -15,6 +15,9 @@ namespace Jjam
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
+		virtual void OnEnter();
+		virtual void OnExit();
+
 		void AddGameObject(GameObject* gameObject);
 
 	private:
