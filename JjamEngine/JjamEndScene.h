@@ -15,6 +15,8 @@ namespace Jjam
 		void Render(HDC hdc) override;
 
 	private:
+		class Background* ebg;
+
 		bool result;
 		int score;
 	};

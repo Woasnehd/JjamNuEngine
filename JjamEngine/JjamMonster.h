@@ -1,20 +1,17 @@
 #pragma once
-#include "..\JjamEngine_SOURCE\\JjamScene.h"
+#include "..\JjamEngine_SOURCE\JjamGameObject.h"
 
 namespace Jjam
 {
-	class StartScene : public Scene
+	class Monster : public GameObject
 	{
 	public:
-		StartScene();
-		~StartScene();
-
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
 	private:
-		class Background* sbg;
+
 	};
 }

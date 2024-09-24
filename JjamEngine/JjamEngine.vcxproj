@@ -22,14 +22,17 @@
     <ClInclude Include="JjamBackground.h" />
     <ClInclude Include="JjamEndScene.h" />
     <ClInclude Include="JjamLoadScenes.h" />
+    <ClInclude Include="JjamMonster.h" />
     <ClInclude Include="JjamPlayer.h" />
     <ClInclude Include="JjamPlayScene.h" />
     <ClInclude Include="JjamStartScene.h" />
+    <ClInclude Include="JjamLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JjamBackground.cpp" />
     <ClCompile Include="JjamEndScene.cpp" />
     <ClCompile Include="JjamLoadScenes.cpp" />
+    <ClCompile Include="JjamMonster.cpp" />
     <ClCompile Include="JjamPlayer.cpp" />
     <ClCompile Include="JjamPlayScene.cpp" />
     <ClCompile Include="JjamStartScene.cpp" />

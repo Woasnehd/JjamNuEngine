@@ -4,6 +4,9 @@
 #include "JjamSpriteRenderer.h"
 #include "JjamInput.h"
 #include "JjamSceneManager.h"
+#include "JjamObject.h"
+#include "JjamTexture.h"
+#include "JjamResources.h"
 
 namespace Jjam {
 	EndScene::EndScene()
@@ -19,17 +22,11 @@ namespace Jjam {
 
 	void EndScene::Initialize()
 	{
-		Background* ebg = new Background();
+		ebg = object::Instantiate<Background>(enums::eLayerType::Background, Vector2(0.0f, 0.0f));
+		SpriteRenderer* bsr = ebg->AddComponent<SpriteRenderer>();
 
-		Transform* tr = ebg->AddComponent<Transform>();
-		tr->SetPos(Vector2(0, 0));
-		tr->SetName(L"TR");
-
-		SpriteRenderer* sr = ebg->AddComponent<SpriteRenderer>();
-		sr->SetName(L"SR");
-		sr->ImageLoad(L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Ending_Background.png");
-
-		AddGameObject(ebg, eLayerType::Background);
+		graphics::Texture* ebg = Resources::Find<graphics::Texture>(L"EndBG");
+		bsr->SetTexture(ebg);
 	}
 
 	void EndScene::Update()

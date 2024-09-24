@@ -40,6 +40,9 @@ namespace Jjam
 		}
 
 	private:
+		void initializeTransform();
+
+	private:
 		vector<Component*> mComponents;
 	};
 }

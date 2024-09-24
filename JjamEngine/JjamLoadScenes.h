@@ -10,7 +10,7 @@ namespace Jjam
 	{
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		SceneManager::CreateScene<EndScene>(L"EndScene");
-		//SceneManager::CreateScene<TitleScene>(L"StartScene");
+		SceneManager::CreateScene<StartScene>(L"StartScene");
 
 		SceneManager::LoadScene(L"PlayScene");
 	}

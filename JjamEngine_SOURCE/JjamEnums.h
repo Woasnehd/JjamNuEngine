@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Jjam {
+namespace Jjam::enums {
 	enum class eLayerType {
 		None,
 		Background,
@@ -8,5 +8,12 @@ namespace Jjam {
 		Player,
 		Monsters,
 		Max = 16
+	};
+
+	enum class eResourceType {
+		Texture,
+		AudioClip,
+		Prefab,	//for saving data
+		End
 	};
 }

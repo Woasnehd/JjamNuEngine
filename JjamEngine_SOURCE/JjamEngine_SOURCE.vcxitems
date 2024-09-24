@@ -23,11 +23,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamTransform.h" />
   </ItemGroup>
@@ -39,11 +42,14 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamTransform.cpp" />
   </ItemGroup>

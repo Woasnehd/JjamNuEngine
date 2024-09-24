@@ -27,6 +27,10 @@
     <ClInclude Include="JjamBackground.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="JjamMonster.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="JjamLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JjamPlayScene.cpp">
@@ -45,6 +49,9 @@
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="JjamBackground.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamMonster.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>

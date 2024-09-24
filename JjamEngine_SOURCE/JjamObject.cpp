@@ -1,0 +1,1 @@
+#include "JjamObject.h"

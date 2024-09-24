@@ -17,13 +17,28 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamMath.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JjamResource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JjamResources.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamTime.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JjamTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamLayer.cpp">
       <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamTransform.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamScript.cpp">
+      <Filter>Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,16 +61,31 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamMath.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JjamResource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JjamResources.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamTime.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JjamTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamEnums.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamLayer.h">
       <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamSpriteRenderer.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamTransform.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamScript.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +103,12 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{3e863ac3-1e22-4ddb-83c9-a6de085a7c41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{02f514f7-9a35-49d0-9469-f81333df4ebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{80fa3f1b-eaa4-40bc-8a82-7908eb90481b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

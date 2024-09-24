@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "Windows_Editor.h"
 #include "..\JjamEngine_SOURCE\JjamApplication.h"
+#include "..\\JjamEngine\\JjamLoadResources.h"
 #include "..\\JjamEngine\\JjamLoadScenes.h"
 
 Jjam::Application application;
@@ -131,6 +132,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(hWnd);
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+
+   Jjam::LoadResources();
    Jjam::LoadScenes();
 
    return TRUE;

@@ -19,5 +19,7 @@ namespace Jjam
 
 	private:
 		class Background* pbg;
+		class Player* player;
+		class Monster* monster;
 	};
 }
