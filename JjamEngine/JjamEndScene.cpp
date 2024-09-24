@@ -47,7 +47,7 @@ namespace Jjam {
 	{
 		Scene::Render(hdc);
 
-		wchar_t str[50] = L"EndScene";
-		TextOut(hdc, 0, 20, str, 8);
+		/*wchar_t str[50] = L"EndScene";
+		TextOut(hdc, 0, 20, str, 8);*/
 	}
 }

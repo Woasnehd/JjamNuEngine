@@ -21,11 +21,19 @@ namespace Jjam {
 
 	void StartScene::Initialize()
 	{
-		sbg = object::Instantiate<Background>(enums::eLayerType::Background, Vector2(0.0f, 50.0f));
+		sbg = object::Instantiate<Background>(enums::eLayerType::Background, Vector2(0.0f, 0.0f));
 		SpriteRenderer* bsr = sbg->AddComponent<SpriteRenderer>();
 
-		graphics::Texture* sbg = Resources::Find<graphics::Texture>(L"StartBG");
-		bsr->SetTexture(sbg);
+		graphics::Texture* sbgtex = Resources::Find<graphics::Texture>(L"StartBG");
+		bsr->SetTexture(sbgtex);
+		bsr->SetSize(Vector2(1.0f, 1.1f));
+
+		sbg = object::Instantiate<Background>(enums::eLayerType::OtherObjects, Vector2(420.0f, 50.0f));
+		bsr = sbg->AddComponent<SpriteRenderer>();
+
+		sbgtex = Resources::Find<graphics::Texture>(L"Logo");
+		bsr->SetTexture(sbgtex);
+		bsr->SetSize(Vector2(1.25f, 1.25f));
 	}
 
 	void StartScene::Update()
@@ -46,7 +54,7 @@ namespace Jjam {
 	{
 		Scene::Render(hdc);
 
-		wchar_t str[50] = L"StartScene";
-		TextOut(hdc, 0, 20, str, 9);
+		/*wchar_t str[50] = L"StartScene";
+		TextOut(hdc, 0, 20, str, 9);*/
 	}
 }

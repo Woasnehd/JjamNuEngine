@@ -23,7 +23,9 @@
     <ClInclude Include="JjamEndScene.h" />
     <ClInclude Include="JjamLoadScenes.h" />
     <ClInclude Include="JjamMonster.h" />
+    <ClInclude Include="JjamMonsterScript.h" />
     <ClInclude Include="JjamPlayer.h" />
+    <ClInclude Include="JjamPlayerScript.h" />
     <ClInclude Include="JjamPlayScene.h" />
     <ClInclude Include="JjamStartScene.h" />
     <ClInclude Include="JjamLoadResources.h" />
@@ -33,7 +35,9 @@
     <ClCompile Include="JjamEndScene.cpp" />
     <ClCompile Include="JjamLoadScenes.cpp" />
     <ClCompile Include="JjamMonster.cpp" />
+    <ClCompile Include="JjamMonsterScript.cpp" />
     <ClCompile Include="JjamPlayer.cpp" />
+    <ClCompile Include="JjamPlayerScript.cpp" />
     <ClCompile Include="JjamPlayScene.cpp" />
     <ClCompile Include="JjamStartScene.cpp" />
   </ItemGroup>

@@ -1,12 +1,13 @@
 #pragma once
-#include "..\JjamEngine_SOURCE\JjamGameObject.h"
-#include "JjamPlayer.h"
+#include "..\JjamEngine_SOURCE\JjamScript.h"
 
-namespace Jjam
-{
-	class Monster : public GameObject
+namespace Jjam {
+	class MonsterScript : public Script
 	{
 	public:
+		MonsterScript();
+		~MonsterScript();
+
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;

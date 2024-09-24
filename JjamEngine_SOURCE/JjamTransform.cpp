@@ -5,6 +5,7 @@
 namespace Jjam
 {
 	Transform::Transform()
+		:Component(enums::eComponentType::Transform)
 	{
 
 	}

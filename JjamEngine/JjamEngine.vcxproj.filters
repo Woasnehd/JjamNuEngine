@@ -7,6 +7,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{189875c1-d156-4e9a-b608-75b5581b408a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Script">
+      <UniqueIdentifier>{5608af2c-6c79-4acf-8130-067a86452d0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JjamPlayScene.h">
@@ -31,6 +34,12 @@
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="JjamLoadResources.h" />
+    <ClInclude Include="JjamPlayerScript.h">
+      <Filter>Script</Filter>
+    </ClInclude>
+    <ClInclude Include="JjamMonsterScript.h">
+      <Filter>Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JjamPlayScene.cpp">
@@ -53,6 +62,12 @@
     </ClCompile>
     <ClCompile Include="JjamMonster.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamPlayerScript.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamMonsterScript.cpp">
+      <Filter>Script</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

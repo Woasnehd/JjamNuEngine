@@ -1,11 +1,13 @@
 #include "JjamSpriteRenderer.h"
 #include "JjamGameObject.h"
 #include "JjamTransform.h"
+#include "JjamRenderer.h"
+#include "JjamCamera.h"
 
 namespace Jjam
 {
 	SpriteRenderer::SpriteRenderer()
-		:Component(), mTexture(nullptr), mSize(Vector2::One)
+		:Component(enums::eComponentType::SpriteRenderer), mTexture(nullptr), mSize(Vector2::One)
 	{
 
 	}
@@ -38,6 +40,7 @@ namespace Jjam
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		pos = renderer::mainCamera->CaluatePosition(pos);
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp) {
 			TransparentBlt(hdc, pos.x, pos.y

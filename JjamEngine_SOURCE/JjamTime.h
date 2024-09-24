@@ -20,7 +20,3 @@ namespace Jjam
 		static float DeltaTimeValue;
 	};
 }
-
-class Time
-{
-};

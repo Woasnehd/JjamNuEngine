@@ -2,7 +2,8 @@
 
 namespace Jjam
 {
-	Component::Component()
+	Component::Component(enums::eComponentType type)
+		:mType(type)
 	{
 
 	}

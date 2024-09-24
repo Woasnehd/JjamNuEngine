@@ -16,6 +16,8 @@ namespace Jjam {
 
 		void AddGameObject(GameObject* gameObject);
 
+		vector<GameObject*>& GetGameObjects() { return mGameObjects; }
+
 	private:
 		vector<GameObject*> mGameObjects;
 	};

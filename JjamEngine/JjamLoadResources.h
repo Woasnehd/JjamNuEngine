@@ -6,6 +6,8 @@ namespace Jjam
 {
 	void LoadResources()
 	{
+		Resources::Load<graphics::Texture>(L"Logo", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Logo.png");
+
 		Resources::Load<graphics::Texture>(L"StartBG", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Cernium_Start.png");
 		Resources::Load<graphics::Texture>(L"PlayBG", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Cernium_Play.png");
 		Resources::Load<graphics::Texture>(L"EndBG", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Cernium_End.png");

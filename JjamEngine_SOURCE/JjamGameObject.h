@@ -20,7 +20,8 @@ namespace Jjam
 		{
 			T* comp = new T();
 			comp->SetOwner(this);
-			mComponents.push_back(comp);
+
+			mComponents[(UINT)comp->GetType()] = comp;
 
 			return comp;
 		}
