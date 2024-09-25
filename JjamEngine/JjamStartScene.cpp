@@ -26,14 +26,14 @@ namespace Jjam {
 
 		graphics::Texture* sbgtex = Resources::Find<graphics::Texture>(L"StartBG");
 		bsr->SetTexture(sbgtex);
-		bsr->SetSize(Vector2(1.0f, 1.1f));
+		bsr->SetSize(Vector2(2.5f, 2.5f));
 
-		sbg = object::Instantiate<Background>(enums::eLayerType::OtherObjects, Vector2(420.0f, 50.0f));
+		sbg = object::Instantiate<Background>(enums::eLayerType::OtherObjects, Vector2(180.0f, 150.0f));
 		bsr = sbg->AddComponent<SpriteRenderer>();
 
 		sbgtex = Resources::Find<graphics::Texture>(L"Logo");
 		bsr->SetTexture(sbgtex);
-		bsr->SetSize(Vector2(1.25f, 1.25f));
+		bsr->SetSize(Vector2(0.5f, 0.5f));
 	}
 
 	void StartScene::Update()

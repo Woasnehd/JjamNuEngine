@@ -1,14 +1,20 @@
 #include "JjamInput.h"
+#include "JjamApplication.h"
+
+extern Jjam::Application application;
 
 namespace Jjam
 {
 	vector<Input::Key> Input::Keys = {};
+	math::Vector2 Input::mMousePosition = math::Vector2::One;
 
 	int ASCII[(UINT)eKeyCode::End] =
 	{
 		'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
 		'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
 		'Z', 'X', 'C', 'V', 'B', 'N', 'M',
+		VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP,
+		VK_LBUTTON, VK_MBUTTON, VK_RBUTTON,
 	};
 
 	void Input::Initailize()
@@ -44,13 +50,21 @@ namespace Jjam
 
 	void Input::updateKey(Input::Key& key)
 	{
-		if (isKeyDown(key.keyCode))
-		{
-			updateKeyDown(key);
+		if (GetFocus()) {
+			if (isKeyDown(key.keyCode))
+			{
+				updateKeyDown(key);
+			}
+			else
+			{
+				updateKeyUp(key);
+			}
+
+			getMousePosByWindow();
 		}
-		else
-		{
-			updateKeyUp(key);
+
+		else {
+			clearKeys();
 		}
 	}
 
@@ -76,5 +90,28 @@ namespace Jjam
 			key.state = eKeyState::None;
 
 		key.bPressed = false;
+	}
+
+	void Input::getMousePosByWindow()
+	{
+		POINT mousePos = {};
+		GetCursorPos(&mousePos);
+		ScreenToClient(application.GetHwnd(), &mousePos);
+
+		mMousePosition.x = mousePos.x;
+		mMousePosition.y = mousePos.y;
+	}
+
+	void Input::clearKeys()
+	{
+		for (Key& key : Keys) {
+			if (key.state == eKeyState::Down || key.state == eKeyState::Pressed) {
+				key.state = eKeyState::Up;
+			}
+			else if (key.state == eKeyState::Up) {
+				key.state = eKeyState::None;
+			}
+			key.bPressed = false;
+		}
 	}
 }

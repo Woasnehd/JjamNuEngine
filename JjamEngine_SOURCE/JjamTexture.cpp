@@ -5,7 +5,12 @@ extern Jjam::Application application;
 
 namespace Jjam::graphics {
 	Texture::Texture()
-		:Resource(enums::eResourceType::Texture)
+		:Resource(enums::eResourceType::Texture),
+		mImage(nullptr),
+		mBitmap(NULL),
+		mHdc(nullptr),
+		mWidth(0),
+		mHeight(0)
 	{
 	}
 
@@ -48,6 +53,20 @@ namespace Jjam::graphics {
 
 			mWidth = mImage->GetWidth();
 			mHeight = mImage->GetHeight();
+
+			// HDC·Î º¯È¯
+			HDC mainDC = application.GetHdc();
+			mHdc = CreateCompatibleDC(mainDC);
+
+			HBITMAP bitmap;
+			Gdiplus::Bitmap bmp(mWidth, mHeight, PixelFormat32bppARGB);
+			Gdiplus::Graphics graphics(&bmp);
+			graphics.DrawImage(mImage, 0, 0, mWidth, mHeight);
+
+			bmp.GetHBITMAP(Gdiplus::Color(0, 0, 0), &bitmap);
+			HBITMAP oldBitmap = (HBITMAP)SelectObject(mHdc, bitmap);
+
+			DeleteObject(oldBitmap);
 		}
 	
 		return S_OK;

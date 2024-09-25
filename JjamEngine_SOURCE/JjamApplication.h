@@ -15,7 +15,9 @@ namespace Jjam
 		void Update();
 		void LateUpdate();
 		void Render();
+		void Release();
 
+		HWND GetHwnd() { return mHwnd; }
 		HDC GetHdc() { return mHdc; }
 		UINT GetWidth() { return mWidth; }
 		UINT GetHeight() { return mHeight; }

@@ -37,6 +37,15 @@ namespace Jjam {
 			return resource;
 		}
 
+		static void Release()
+		{
+			for (auto& iter : mResources)
+			{
+				delete iter.second;
+				iter.second = nullptr;
+			}
+		}
+
 	private:
 		static map<wstring, Resource*> mResources;
 	};

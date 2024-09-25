@@ -6,13 +6,18 @@ namespace Jjam
 {
 	void LoadResources()
 	{
-		Resources::Load<graphics::Texture>(L"Logo", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Logo.png");
+		Resources::Load<graphics::Texture>(L"Logo", L"..\\Resources\\Logo.png");
 
-		Resources::Load<graphics::Texture>(L"StartBG", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Cernium_Start.png");
-		Resources::Load<graphics::Texture>(L"PlayBG", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Cernium_Play.png");
-		Resources::Load<graphics::Texture>(L"EndBG", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Cernium_End.png");
+		Resources::Load<graphics::Texture>(L"StartBG", L"..\\Resources\\StartScene.png");
+		Resources::Load<graphics::Texture>(L"PlayBG", L"..\\Resources\\PlayScene.png");
+		Resources::Load<graphics::Texture>(L"EndBG", L"..\\Resources\\EndScene.png");
 
-		Resources::Load<graphics::Texture>(L"Player", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Player.png");
-		Resources::Load<graphics::Texture>(L"Monster1", L"D:\\Visual_Studio_2022\\JjamNu_Engine\\Resources\\Monster1.png");
+		Resources::Load<graphics::Texture>(L"PlayerL", L"..\\Resources\\LucidL.png");
+		Resources::Load<graphics::Texture>(L"PlayerR", L"..\\Resources\\LucidR.png");
+
+		Resources::Load<graphics::Texture>(L"FlyingMLeft", L"..\\Resources\\FlyingMonster.png");
+		Resources::Load<graphics::Texture>(L"HeavyMRight", L"..\\Resources\\HeavyMonster.png");
+
+		Resources::Load<graphics::Texture>(L"MapleEffect", L"..\\Resources\\effect1.png");
 	}
 }

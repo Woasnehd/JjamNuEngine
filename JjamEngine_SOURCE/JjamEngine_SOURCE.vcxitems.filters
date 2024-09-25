@@ -46,6 +46,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamAnimation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamApplication.h" />
@@ -96,6 +98,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamCamera.h">
       <Filter>Component\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>

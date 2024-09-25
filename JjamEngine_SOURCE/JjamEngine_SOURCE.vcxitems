@@ -15,6 +15,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamComponent.h" />
@@ -37,6 +39,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamTransform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamComponent.cpp" />

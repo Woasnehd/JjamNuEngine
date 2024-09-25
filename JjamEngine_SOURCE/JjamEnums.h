@@ -4,6 +4,7 @@ namespace Jjam::enums {
 	enum class eComponentType {
 		Transform,
 		SpriteRenderer,
+		Animator,
 		Script,
 		Camera,
 		End
@@ -14,14 +15,17 @@ namespace Jjam::enums {
 		Background,
 		OtherObjects,
 		Player,
-		Monsters,
+		FlyingMonsters,
+		HeavyMonsters,
+		Particle,
 		Max = 16
 	};
 
 	enum class eResourceType {
 		Texture,
 		AudioClip,
-		Prefab,	//for saving data
+		Animation,
+		Prefab,
 		End
 	};
 }

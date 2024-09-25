@@ -15,6 +15,7 @@
 #include "JjamCamera.h"
 #include "JjamRenderer.h"
 #include "JjamMonsterScript.h"
+#include "JjamAnimator.h"
 
 extern Jjam::Application application;
 
@@ -41,21 +42,54 @@ namespace Jjam
 
 		graphics::Texture* pbgtex = Resources::Find<graphics::Texture>(L"PlayBG");
 		bsr->SetTexture(pbgtex);
-		bsr->SetSize(Vector2(1.25f, 1.25f));
+		bsr->SetSize(Vector2(2.5f, 2.5f));
 
-		player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(100.0f, 625.0f));
-		SpriteRenderer* psr = player->AddComponent<SpriteRenderer>();
-		Script* psc = player->AddComponent<PlayerScript>();
+		player = object::Instantiate<Player>(enums::eLayerType::Player);
+		PlayerScript* pScr = player->AddComponent<PlayerScript>();
+		cameraComp->SetTarget(player);
 
-		graphics::Texture* ptex = Resources::Find<graphics::Texture>(L"Player");
-		psr->SetTexture(ptex);
+		graphics::Texture* pLTexture = Resources::Find<graphics::Texture>(L"PlayerL");
+		Animator* pAnimator = player->AddComponent<Animator>();
+		pAnimator->CreateAnimation(L"Left", pLTexture
+			, Vector2(0.0f, 0.0f), Vector2(340.0f, 380.0f), Vector2::Zero, 6, 0.2f);
 
-		monster = object::Instantiate<Monster>(enums::eLayerType::Monsters, Vector2(400.0f, 625.0f));
-		SpriteRenderer* msr = monster->AddComponent<SpriteRenderer>();
-		Script* msc = monster->AddComponent<MonsterScript>();
+		pLTexture = Resources::Find<graphics::Texture>(L"PlayerR");
+		pAnimator->CreateAnimation(L"Right", pLTexture
+			, Vector2(0.0f, 0.0f), Vector2(340.0f, 380.0f), Vector2::Zero, 6, 0.2f);
 
-		graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"Monster1");
-		msr->SetTexture(mtex);
+		/*pAnimator->CreateAnimation(L"LeftAttack", pLTexture
+			, Vector2(0.0f, 100.0f), Vector2(52.0f, 50.0f), Vector2::Zero, 7, 0.1f);
+		pAnimator->CreateAnimation(L"LeftDown", pLTexture
+			, Vector2(0.0f, 450.0f), Vector2(52.0f, 50.0f), Vector2::Zero, 4, 0.1f);*/
+
+		pAnimator->PlayAnimation(L"Left");
+
+		pAnimator->GetCompleteEvent(L"") = bind(&PlayerScript::AttackEffect, pScr);
+
+		player->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		player->GetComponent<Transform>()->SetScale(Vector2(0.7f, 0.7f));
+
+		for (int i = 0; i < 20; i++) {
+			monster = object::Instantiate<Monster>(enums::eLayerType::FlyingMonsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
+			monster->AddComponent<MonsterScript>();
+			graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"FlyingMLeft");
+
+			Animator* mAnimator = monster->AddComponent<Animator>();
+			mAnimator->CreateAnimation(L"FlyingMLeftMove", mtex
+				, Vector2(0.0f, 0.0f), Vector2(192.0, 192.0f), Vector2::Zero, 4, 0.1f);
+			mAnimator->PlayAnimation(L"FlyingMLeftMove", true);
+		}
+
+		for (int i = 0; i < 5; i++) {
+			monster = object::Instantiate<Monster>(enums::eLayerType::HeavyMonsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
+			monster->AddComponent<MonsterScript>();
+			graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"HeavyMRight");
+
+			Animator* mAnimator = monster->AddComponent<Animator>();
+			mAnimator->CreateAnimation(L"HeavyMRightMove", mtex
+				, Vector2(0.0f, 0.0f), Vector2(192.0f, 192.0f), Vector2::Zero, 5, 0.1f);
+			mAnimator->PlayAnimation(L"HeavyMRightMove", true);
+		}
 
 		Scene::Initialize();
 	}

@@ -2,6 +2,7 @@
 #include "JjamInput.h"
 #include "JjamTime.h"
 #include "JjamSceneManager.h"
+#include "yaResources.h"
 
 namespace Jjam
 {
@@ -57,6 +58,12 @@ namespace Jjam
 		Time::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 
 	void Application::clearRenderTarget()

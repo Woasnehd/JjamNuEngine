@@ -27,6 +27,7 @@ namespace Jjam {
 
 		graphics::Texture* ebg = Resources::Find<graphics::Texture>(L"EndBG");
 		bsr->SetTexture(ebg);
+		bsr->SetSize(Vector2(2.5f, 2.5f));
 	}
 
 	void EndScene::Update()
