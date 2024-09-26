@@ -5,6 +5,7 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <iostream>
 
 #include "JjamMath.h"
 

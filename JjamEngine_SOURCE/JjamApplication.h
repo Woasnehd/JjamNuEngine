@@ -12,9 +12,11 @@ namespace Jjam
 
 		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
+
 		void Update();
 		void LateUpdate();
 		void Render();
+		void Destroy();
 		void Release();
 
 		HWND GetHwnd() { return mHwnd; }

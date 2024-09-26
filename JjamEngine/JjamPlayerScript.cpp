@@ -45,7 +45,12 @@ namespace Jjam {
 			break;
 
 		case PlayerScript::eState::Attack:
+            Attack();
 			break;
+
+        case PlayerScript::eState::Skill1:
+            Skill1();
+            break;
 
 		case PlayerScript::eState::Down:
 			break;
@@ -65,6 +70,19 @@ namespace Jjam {
 
 	}
 
+    void PlayerScript::Attack()
+    {
+
+    }
+
+    void PlayerScript::Skill1()
+    {
+        if (mAnimator->IsPlaying(L"Skill1")) {
+            mState = PlayerScript::eState::Idle;
+            mAnimator->PlayAnimation(L"Idle", false);
+        }
+    }
+
     void PlayerScript::idle()
     {
         if (Input::GetKey(eKeyCode::D))
@@ -79,11 +97,17 @@ namespace Jjam {
         }
         if (Input::GetKey(eKeyCode::W))
         {
-            mState = PlayerScript::eState::Move; 
+            mState = PlayerScript::eState::Move;
         }
         if (Input::GetKey(eKeyCode::S))
         {
             mState = PlayerScript::eState::Move;
+        }
+
+        if (Input::GetKey(eKeyCode::E))
+        {
+            mState = PlayerScript::eState::Skill1;
+            mAnimator->PlayAnimation(L"Skill1", false);
         }
     }
 
@@ -110,6 +134,12 @@ namespace Jjam {
             pos.y += 100.0f * Time::DeltaTime();
         }
 
+        if (Input::GetKey(eKeyCode::E))
+        {
+            mState = PlayerScript::eState::Skill1;
+            mAnimator->PlayAnimation(L"Skill1", false);
+        }
+
         if (Input::GetKeyUp(eKeyCode::A)) {
             mAnimator->PlayAnimation(L"Left");
             mState = PlayerScript::eState::Idle;
@@ -117,8 +147,8 @@ namespace Jjam {
 
         if (Input::GetKeyUp(eKeyCode::D))
         {
-            /*mAnimator->PlayAnimation(L"RightIdle");*/
             mState = PlayerScript::eState::Idle;
+            mAnimator->PlayAnimation(L"Right");
         }
 
         tr->SetPosition(pos);

@@ -12,6 +12,5 @@ namespace Jjam
 		void Render(HDC hdc) override;
 
 	private:
-
 	};
 }

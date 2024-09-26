@@ -6,6 +6,7 @@
 namespace Jjam
 {
 	GameObject::GameObject()
+		:mState(eState::Active)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();
@@ -68,6 +69,17 @@ namespace Jjam
 			}
 
 			comp->Render(hdc);
+		}
+	}
+
+	void GameObject::SetActive(bool power)
+	{
+		if (power == true) {
+			mState = eState::Active;
+		}
+
+		if (power == false) {
+			mState = eState::Paused;
 		}
 	}
 

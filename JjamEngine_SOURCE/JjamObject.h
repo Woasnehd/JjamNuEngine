@@ -5,6 +5,7 @@
 #include "JjamScene.h"
 #include "JjamSceneManager.h"
 #include "JjamTransform.h"
+
 namespace Jjam::object
 {
 	template <typename T>
@@ -31,5 +32,9 @@ namespace Jjam::object
 		tr->SetPosition(position);
 
 		return gameObject;
+	}
+
+	static void Destroy(GameObject* obj) {
+		obj->Death();
 	}
 }

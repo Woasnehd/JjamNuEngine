@@ -105,14 +105,12 @@ namespace Jjam {
 
 		if (mActiveAnimation)
 		{
-			Events* currentEvents
-				= FindEvents(mActiveAnimation->GetName());
+			Events* currentEvents = FindEvents(mActiveAnimation->GetName());
 
 			if (currentEvents)
 				currentEvents->endEvent();
 		}
-		Events* nextEvents
-			= FindEvents(animation->GetName());
+		Events* nextEvents = FindEvents(animation->GetName());
 		if (nextEvents)
 			nextEvents->startEvent();
 

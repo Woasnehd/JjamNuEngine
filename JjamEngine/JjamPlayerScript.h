@@ -9,6 +9,7 @@ namespace Jjam {
 			Idle,
 			Move,
 			Attack,
+			Skill1,
 			Down
 		};
 
@@ -20,7 +21,8 @@ namespace Jjam {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void AttackEffect();
+		void Attack();
+		void Skill1();
 
 	private:
 		void idle();
@@ -29,9 +31,5 @@ namespace Jjam {
 	private:
 		eState mState;
 		class Animator* mAnimator;
-
-		/*void (*StartEvent)();
-		void (*CompleteEvent)();
-		void (*EndEvent)();*/
 	};
 }

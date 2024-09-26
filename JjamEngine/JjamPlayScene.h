@@ -21,5 +21,6 @@ namespace Jjam
 		class Background* pbg;
 		class Player* player;
 		class Monster* monster;
+		class BasicAttack* attack;
 	};
 }

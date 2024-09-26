@@ -7,6 +7,13 @@ namespace Jjam
 	class GameObject
 	{
 	public:
+		enum class eState {
+			Active,
+			Paused,
+			Dead,
+			End
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -40,10 +47,15 @@ namespace Jjam
 			return component;
 		}
 
+		void SetActive(bool power);
+		void Death() { mState = eState::Dead; }
+		eState GetActive() { return mState; }
+
 	private:
 		void initializeTransform();
 
 	private:
+		eState mState;
 		vector<Component*> mComponents;
 	};
 }

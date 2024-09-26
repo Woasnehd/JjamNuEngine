@@ -87,7 +87,7 @@ namespace Jjam {
 
         else if (type == graphics::Texture::eTextureType::Png) {
             Gdiplus::ImageAttributes imageAtt = {};
-            imageAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 255, 255));
+            imageAtt.SetColorKey(Gdiplus::Color(240, 240, 240), Gdiplus::Color(255, 255, 255));
 
             Gdiplus::Graphics grap(hdc);
 

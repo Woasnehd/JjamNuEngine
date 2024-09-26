@@ -27,6 +27,11 @@ namespace Jjam {
 				continue;
 			}
 
+			GameObject::eState state = gameObject->GetActive();
+			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead) {
+				continue;
+			}
+
 			gameObject->Initialize();
 		}
 	}
@@ -36,6 +41,11 @@ namespace Jjam {
 		for (GameObject* gameObject : mGameObjects)
 		{
 			if (gameObject == nullptr) {
+				continue;
+			}
+
+			GameObject::eState state = gameObject->GetActive();
+			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead) {
 				continue;
 			}
 
@@ -51,6 +61,11 @@ namespace Jjam {
 				continue;
 			}
 
+			GameObject::eState state = gameObject->GetActive();
+			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead) {
+				continue;
+			}
+
 			gameObject->LateUpdate();
 		}
 	}
@@ -63,7 +78,31 @@ namespace Jjam {
 				continue;
 			}
 
+			GameObject::eState state = gameObject->GetActive();
+			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead) {
+				continue;
+			}
+
 			gameObject->Render(hdc);
+		}
+	}
+
+	void Layer::Destroy()
+	{
+		for (gameObjIter it = mGameObjects.begin(); it < mGameObjects.end();)
+		{
+			GameObject::eState active = (*it)->GetActive();
+
+			if (active == GameObject::eState::Dead) {
+				GameObject* deathObj = (*it);
+				it = mGameObjects.erase(it);
+
+				delete deathObj;
+				deathObj = nullptr;
+				continue;
+			}
+
+			it++;
 		}
 	}
 
