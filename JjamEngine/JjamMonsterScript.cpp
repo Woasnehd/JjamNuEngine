@@ -5,6 +5,7 @@
 #include "JjamGameObject.h"
 #include "JjamLayer.h"
 #include "JjamSceneManager.h"
+#include "JjamCollider.h"
 
 namespace Jjam {
 	MonsterScript::MonsterScript()
@@ -55,6 +56,21 @@ namespace Jjam {
 	}
 
 	void MonsterScript::Render(HDC hdc)
+	{
+
+	}
+
+	void MonsterScript::OnCollisionEnter(Collider* other)
+	{
+
+	}
+
+	void MonsterScript::OnCollisionStay(Collider* other)
+	{
+
+	}
+
+	void MonsterScript::OnCollisionExit(Collider* other)
 	{
 
 	}

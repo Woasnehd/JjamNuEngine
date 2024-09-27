@@ -57,4 +57,13 @@ namespace Jjam {
 		/*wchar_t str[50] = L"StartScene";
 		TextOut(hdc, 0, 20, str, 9);*/
 	}
+
+	void StartScene::OnEnter()
+	{
+		Scene::OnEnter();
+	}
+	void StartScene::OnExit()
+	{
+		Scene::OnExit();
+	}
 }

@@ -10,6 +10,7 @@
 #include "JjamResources.h"
 #include "JjamAttack.h"
 #include "JjamAttackScript.h"
+#include "JjamCollider.h"
 
 
 namespace Jjam {
@@ -100,6 +101,21 @@ namespace Jjam {
             mState = PlayerScript::eState::Idle;
             mAnimator->PlayAnimation(L"Idle", false);
         }
+    }
+
+    void PlayerScript::OnCollisionEnter(Collider* other)
+    {
+
+    }
+
+    void PlayerScript::OnCollisionStay(Collider* other)
+    {
+
+    }
+
+    void PlayerScript::OnCollisionExit(Collider* other)
+    {
+
     }
 
     void PlayerScript::idle()

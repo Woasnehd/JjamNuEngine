@@ -3,6 +3,7 @@
 #include "JjamTime.h"
 #include "JjamSceneManager.h"
 #include "JjamResources.h"
+#include "JjamColliderManager.h"
 
 namespace Jjam
 {
@@ -28,6 +29,7 @@ namespace Jjam
 		createBuffer(width, height);
 		initializeEtc();
 
+		ColliderManager::Initialize();
 		SceneManager::Initialize();
 	}
 
@@ -44,19 +46,23 @@ namespace Jjam
 		Input::Update();
 		Time::Update();
 
+		ColliderManager::Update();
 		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
+		ColliderManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
 	void Application::Render()
 	{
 		clearRenderTarget();
-		SceneManager::Render(mBackHdc);
+
 		Time::Render(mBackHdc);
+		ColliderManager::Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
 	}

@@ -18,6 +18,9 @@
 #include "JjamAnimator.h"
 #include "JjamAttack.h"
 #include "JjamAttackScript.h"
+#include "JjamBoxCollider2D.h"
+#include "JjamCircleCollider2D.h"
+#include "JjamColliderManager.h"
 
 extern Jjam::Application application;
 
@@ -35,6 +38,8 @@ namespace Jjam
 
 	void PlayScene::Initialize()
 	{
+		ColliderManager::CollisionLayerCheck(enums::eLayerType::Player, enums::eLayerType::Monsters, true);
+		
 		//Creating Background
 		pbg = object::Instantiate<Background>(enums::eLayerType::Background, Vector2(0.0f, 0.0f));
 		SpriteRenderer* bsr = pbg->AddComponent<SpriteRenderer>();
@@ -52,17 +57,20 @@ namespace Jjam
 		//Creating Player Object, Setting Camera Target
 		player = object::Instantiate<Player>(enums::eLayerType::Player);
 		PlayerScript* pScr = player->AddComponent<PlayerScript>();
+		BoxCollider2D* boxCollider = player->AddComponent<BoxCollider2D>();
+		boxCollider->SetOffSet(math::Vector2(-30.0f, 20.0f));
+
 		cameraComp->SetTarget(player);
 
 		//Rendering Player Object, Creating Player's Left Moving Motion Animation
 		graphics::Texture* pLTexture = Resources::Find<graphics::Texture>(L"PlayerL");
 		Animator* pAnimator = player->AddComponent<Animator>();
 		pAnimator->CreateAnimation(L"Left", pLTexture
-			, Vector2(0.0f, 0.0f), Vector2(238.0f, 266.0f), Vector2::Zero, 16, 0.1f);
+			, Vector2(0.0f, 0.0f), Vector2(238.0f, 266.0f), Vector2::Zero, 16, 0.2f);
 		//Creating Player's Right Moving Motion Animation
 		pLTexture = Resources::Find<graphics::Texture>(L"PlayerR");
 		pAnimator->CreateAnimation(L"Right", pLTexture
-			, Vector2(0.0f, 0.0f), Vector2(238.0f, 266.0f), Vector2::Zero, 16, 0.1f);
+			, Vector2(0.0f, 0.0f), Vector2(238.0f, 266.0f), Vector2::Zero, 16, 0.2f);
 		//Creating Player's Skill1 Motion Animation
 		pLTexture = Resources::Find<graphics::Texture>(L"PlayerS1");
 		pAnimator->CreateAnimation(L"Skill1", pLTexture
@@ -76,38 +84,45 @@ namespace Jjam
 		player->GetComponent<Transform>()->SetPosition(Vector2(800.0f, 450.0f));
 		player->GetComponent<Transform>()->SetScale(Vector2(1.5f, 1.5f));
 
+
 		//Rendering Init Player Object Animation
 		pAnimator->PlayAnimation(L"Left");
 		//Setting EventFunction
 		pAnimator->GetCompleteEvent(L"Skill1") = bind(&PlayerScript::Skill1, pScr);
 
-		//for (int i = 0; i < 20; i++) {
-		//	//Creating Basic Monster Object
-		//	monster = object::Instantiate<Monster>(enums::eLayerType::FlyingMonsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
-		//	monster->AddComponent<MonsterScript>();
+		for (int i = 0; i < 1; i++) {
+			//Creating Basic Monster Object
+			monster = object::Instantiate<Monster>(enums::eLayerType::Monsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
+			monster->AddComponent<MonsterScript>();
 
-		//	//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
-		//	graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"FlyingMLeft");
+			CircleCollider2D* mBoxCollider = monster->AddComponent<CircleCollider2D>();
+			mBoxCollider->SetOffSet(math::Vector2(-45.0f, -30.0f));
 
-		//	Animator* mAnimator = monster->AddComponent<Animator>();
-		//	mAnimator->CreateAnimation(L"FlyingMLeftMove", mtex
-		//		, Vector2(0.0f, 0.0f), Vector2(192.0, 192.0f), Vector2::Zero, 4, 0.1f);
-		//	mAnimator->PlayAnimation(L"FlyingMLeftMove");
-		//}
+			//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
+			graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"FlyingMLeft");
 
-		//for (int i = 0; i < 5; i++) {
-		//	//Creating Special Monster Object
-		//	monster = object::Instantiate<Monster>(enums::eLayerType::HeavyMonsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
-		//	monster->AddComponent<MonsterScript>();
+			Animator* mAnimator = monster->AddComponent<Animator>();
+			mAnimator->CreateAnimation(L"FlyingMLeftMove", mtex
+				, Vector2(0.0f, 0.0f), Vector2(192.0, 192.0f), Vector2::Zero, 4, 0.1f);
+			mAnimator->PlayAnimation(L"FlyingMLeftMove");
+		}
 
-		//	//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
-		//	graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"HeavyMRight");
+		for (int i = 0; i < 1; i++) {
+			//Creating Special Monster Object
+			monster = object::Instantiate<Monster>(enums::eLayerType::Monsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
+			monster->AddComponent<MonsterScript>();
 
-		//	Animator* mAnimator = monster->AddComponent<Animator>();
-		//	mAnimator->CreateAnimation(L"HeavyMRightMove", mtex
-		//		, Vector2(0.0f, 0.0f), Vector2(192.0f, 192.0f), Vector2::Zero, 5, 0.1f);
-		//	mAnimator->PlayAnimation(L"HeavyMRightMove");
-		//}
+			BoxCollider2D* mBoxCollider = monster->AddComponent<BoxCollider2D>();
+			mBoxCollider->SetOffSet(math::Vector2(-45.0f, -30.0f));
+
+			//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
+			graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"HeavyMRight");
+
+			Animator* mAnimator = monster->AddComponent<Animator>();
+			mAnimator->CreateAnimation(L"HeavyMRightMove", mtex
+				, Vector2(0.0f, 0.0f), Vector2(192.0f, 192.0f), Vector2::Zero, 5, 0.1f);
+			mAnimator->PlayAnimation(L"HeavyMRightMove");
+		}
 
 		Scene::Initialize();
 	}
@@ -139,12 +154,11 @@ namespace Jjam
 	}
 	void PlayScene::OnEnter()
 	{
-
+		Scene::OnEnter();
 	}
 
 	void PlayScene::OnExit()
 	{
-		Transform* tr = pbg->AddComponent<Transform>();
-		tr->SetPosition(Vector2(0, 0));
+		Scene::OnExit();
 	}
 }

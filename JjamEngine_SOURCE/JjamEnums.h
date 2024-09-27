@@ -16,8 +16,7 @@ namespace Jjam::enums {
 		Background,
 		OtherObjects,
 		Player,
-		FlyingMonsters,
-		HeavyMonsters,
+		Monsters,
 		Particle,
 		Max = 16
 	};
@@ -28,5 +27,12 @@ namespace Jjam::enums {
 		Animation,
 		Prefab,
 		End
+	};
+
+	enum class eColliderType
+	{
+		Circle2D,
+		Rect2D,
+		End,
 	};
 }

@@ -27,7 +27,7 @@ namespace Jjam {
 				continue;
 			}
 
-			GameObject::eState state = gameObject->GetActive();
+			GameObject::eState state = gameObject->GetState();
 			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead) {
 				continue;
 			}
@@ -44,7 +44,7 @@ namespace Jjam {
 				continue;
 			}
 
-			GameObject::eState state = gameObject->GetActive();
+			GameObject::eState state = gameObject->GetState();
 			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead) {
 				continue;
 			}
@@ -61,7 +61,7 @@ namespace Jjam {
 				continue;
 			}
 
-			GameObject::eState state = gameObject->GetActive();
+			GameObject::eState state = gameObject->GetState();
 			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead) {
 				continue;
 			}
@@ -78,7 +78,7 @@ namespace Jjam {
 				continue;
 			}
 
-			GameObject::eState state = gameObject->GetActive();
+			GameObject::eState state = gameObject->GetState();
 			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead) {
 				continue;
 			}
@@ -91,7 +91,7 @@ namespace Jjam {
 	{
 		for (gameObjIter it = mGameObjects.begin(); it < mGameObjects.end();)
 		{
-			GameObject::eState active = (*it)->GetActive();
+			GameObject::eState active = (*it)->GetState();
 
 			if (active == GameObject::eState::Dead) {
 				GameObject* deathObj = (*it);

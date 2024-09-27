@@ -49,7 +49,9 @@ namespace Jjam
 
 		void SetActive(bool power);
 		void Death() { mState = eState::Dead; }
-		eState GetActive() { return mState; }
+		eState GetState() { return mState; }
+		bool IsActive() { return mState == eState::Active; }
+		bool IsDead() { return mState == eState::Dead; }
 
 	private:
 		void initializeTransform();

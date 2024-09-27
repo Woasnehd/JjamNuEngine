@@ -102,8 +102,6 @@ namespace Jjam {
                     , sprite.size.x * scale.x
                     , sprite.size.y * scale.y),
                 sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, Gdiplus::UnitPixel, &imageAtt);
-
-            Rectangle(hdc, pos.x + 20, pos.y + 70, pos.x + 25, pos.y + 75);
         }
     }
 
