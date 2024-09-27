@@ -87,7 +87,7 @@ namespace Jjam {
 
         else if (type == graphics::Texture::eTextureType::Png) {
             Gdiplus::ImageAttributes imageAtt = {};
-            imageAtt.SetColorKey(Gdiplus::Color(240, 240, 240), Gdiplus::Color(255, 255, 255));
+            imageAtt.SetColorKey(Gdiplus::Color(220, 220, 220), Gdiplus::Color(255, 255, 255));
 
             Gdiplus::Graphics grap(hdc);
 
@@ -101,7 +101,9 @@ namespace Jjam {
                     , pos.y - (sprite.size.x / 2.0f)
                     , sprite.size.x * scale.x
                     , sprite.size.y * scale.y),
-                sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, Gdiplus::UnitPixel, nullptr);
+                sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, Gdiplus::UnitPixel, &imageAtt);
+
+            Rectangle(hdc, pos.x + 20, pos.y + 70, pos.x + 25, pos.y + 75);
         }
     }
 

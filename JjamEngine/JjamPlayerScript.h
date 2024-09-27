@@ -21,7 +21,7 @@ namespace Jjam {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void Attack();
+		void BasicAttack();
 		void Skill1();
 
 	private:

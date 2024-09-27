@@ -1,13 +1,13 @@
 #pragma once
 #include <Windows.h>
 #include <assert.h>
+#include <iostream>
+
 #include <vector>
+#include <algorithm>
 #include <string>
 #include <map>
 #include <functional>
-#include <iostream>
-
-#include "JjamMath.h"
 
 #include <mmsystem.h>
 #include <dinput.h>
@@ -18,5 +18,6 @@
 #pragma comment(lib, "gdiplus.lib")
 
 #include "JjamEnums.h"
+#include "JjamMath.h"
 
 using namespace std;

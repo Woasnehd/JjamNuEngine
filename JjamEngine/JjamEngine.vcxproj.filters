@@ -40,6 +40,12 @@
     <ClInclude Include="JjamMonsterScript.h">
       <Filter>Script</Filter>
     </ClInclude>
+    <ClInclude Include="JjamAttack.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="JjamAttackScript.h">
+      <Filter>Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JjamPlayScene.cpp">
@@ -67,6 +73,12 @@
       <Filter>Script</Filter>
     </ClCompile>
     <ClCompile Include="JjamMonsterScript.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamAttack.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JjamAttackScript.cpp">
       <Filter>Script</Filter>
     </ClCompile>
   </ItemGroup>

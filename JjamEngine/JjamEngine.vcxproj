@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="JjamAttack.h" />
+    <ClInclude Include="JjamAttackScript.h" />
     <ClInclude Include="JjamBackground.h" />
     <ClInclude Include="JjamEndScene.h" />
     <ClInclude Include="JjamLoadScenes.h" />
@@ -31,6 +33,8 @@
     <ClInclude Include="JjamLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="JjamAttack.cpp" />
+    <ClCompile Include="JjamAttackScript.cpp" />
     <ClCompile Include="JjamBackground.cpp" />
     <ClCompile Include="JjamEndScene.cpp" />
     <ClCompile Include="JjamLoadScenes.cpp" />

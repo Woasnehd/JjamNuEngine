@@ -36,6 +36,9 @@ namespace Jjam {
 			Transform* playerTransform = player->GetComponent<Transform>();
 			Vector2 playerPos = playerTransform->GetPosition();
 
+			playerPos.x += 20;
+			playerPos.y += 70;
+
 			Vector2 direction = playerPos - mpos;
 			direction.Normalize();
 

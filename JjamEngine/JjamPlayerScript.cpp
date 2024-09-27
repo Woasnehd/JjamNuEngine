@@ -8,6 +8,8 @@
 #include "JjamPlayer.h"
 #include "JjamObject.h"
 #include "JjamResources.h"
+#include "JjamAttack.h"
+#include "JjamAttackScript.h"
 
 
 namespace Jjam {
@@ -45,7 +47,7 @@ namespace Jjam {
 			break;
 
 		case PlayerScript::eState::Attack:
-            Attack();
+            BasicAttack();
 			break;
 
         case PlayerScript::eState::Skill1:
@@ -70,9 +72,26 @@ namespace Jjam {
 
 	}
 
-    void PlayerScript::Attack()
+    void PlayerScript::BasicAttack()
     {
+        Attack* att = object::Instantiate<Attack>(enums::eLayerType::OtherObjects);
+        AttackScript* attSrc = att->AddComponent<AttackScript>();
 
+        attSrc->SetOwner(GetOwner());
+
+        graphics::Texture* attTex = Resources::Find<graphics::Texture>(L"BasicAttack");
+        Animator* attAnimator = att->AddComponent<Animator>();
+
+        attAnimator->CreateAnimation(L"Attack", attTex
+            , Vector2(0.0f, 0.0f), Vector2(50.0f, 50.0f), Vector2::Zero, 7, 0.1f);
+
+        attAnimator->PlayAnimation(L"SitDown", false);
+
+        Transform* tr = GetOwner()->GetComponent<Transform>();
+        att->GetComponent<Transform>()->SetPosition(tr->GetPosition());
+
+        Vector2 mousePos = Input::GetMousePosition();
+        attSrc->mDest = mousePos;
     }
 
     void PlayerScript::Skill1()
@@ -85,6 +104,31 @@ namespace Jjam {
 
     void PlayerScript::idle()
     {
+        if (Input::GetKey(eKeyCode::LButton)) {
+            Attack* att = object::Instantiate<Attack>(enums::eLayerType::Particle);
+            AttackScript* attSrc = att->AddComponent<AttackScript>();
+            
+            attSrc->SetPlayer(GetOwner());
+
+            graphics::Texture* attTex = Resources::Find<graphics::Texture>(L"BasicAttack");
+            Animator* attAnimator = att->AddComponent<Animator>();
+
+            attAnimator->CreateAnimation(L"Attack", attTex
+                , Vector2(0.0f, 0.0f), Vector2(50.0f, 50.0f), Vector2::Zero, 7, 0.3f);
+
+            attAnimator->PlayAnimation(L"Attack", false);
+
+            Transform* tr = GetOwner()->GetComponent<Transform>();
+            Vector2 objectPos = tr->GetPosition();
+            objectPos.x += 40;
+            objectPos.y += 100;
+
+            att->GetComponent<Transform>()->SetPosition(objectPos);
+
+            Vector2 mousePos = Input::GetMousePosition();
+            attSrc->mDest = mousePos;
+        }
+
         if (Input::GetKey(eKeyCode::D))
         {
             mState = PlayerScript::eState::Move;
@@ -138,6 +182,31 @@ namespace Jjam {
         {
             mState = PlayerScript::eState::Skill1;
             mAnimator->PlayAnimation(L"Skill1", false);
+        }
+
+        if (Input::GetKey(eKeyCode::LButton)) {
+            Attack* att = object::Instantiate<Attack>(enums::eLayerType::Particle);
+            AttackScript* attSrc = att->AddComponent<AttackScript>();
+
+            attSrc->SetPlayer(GetOwner());
+
+            graphics::Texture* attTex = Resources::Find<graphics::Texture>(L"BasicAttack");
+            Animator* attAnimator = att->AddComponent<Animator>();
+
+            attAnimator->CreateAnimation(L"Attack", attTex
+                , Vector2(0.0f, 0.0f), Vector2(50.0f, 50.0f), Vector2::Zero, 7, 0.3f);
+
+            attAnimator->PlayAnimation(L"Attack", false);
+
+            Transform* tr = GetOwner()->GetComponent<Transform>();
+            Vector2 objectPos = tr->GetPosition();
+            objectPos.x += 40;
+            objectPos.y += 100;
+
+            att->GetComponent<Transform>()->SetPosition(objectPos);
+
+            Vector2 mousePos = Input::GetMousePosition();
+            attSrc->mDest = mousePos;
         }
 
         if (Input::GetKeyUp(eKeyCode::A)) {

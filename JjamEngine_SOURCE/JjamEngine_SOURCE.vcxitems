@@ -19,6 +19,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamCamera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamEnums.h" />
@@ -43,6 +44,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamCamera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamGameObject.cpp" />

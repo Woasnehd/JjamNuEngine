@@ -16,6 +16,8 @@
 #include "JjamPlayerScript.h"
 #include "JjamMonsterScript.h"
 #include "JjamAnimator.h"
+#include "JjamAttack.h"
+#include "JjamAttackScript.h"
 
 extern Jjam::Application application;
 
@@ -79,33 +81,33 @@ namespace Jjam
 		//Setting EventFunction
 		pAnimator->GetCompleteEvent(L"Skill1") = bind(&PlayerScript::Skill1, pScr);
 
-		for (int i = 0; i < 20; i++) {
-			//Creating Basic Monster Object
-			monster = object::Instantiate<Monster>(enums::eLayerType::FlyingMonsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
-			monster->AddComponent<MonsterScript>();
+		//for (int i = 0; i < 20; i++) {
+		//	//Creating Basic Monster Object
+		//	monster = object::Instantiate<Monster>(enums::eLayerType::FlyingMonsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
+		//	monster->AddComponent<MonsterScript>();
 
-			//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
-			graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"FlyingMLeft");
+		//	//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
+		//	graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"FlyingMLeft");
 
-			Animator* mAnimator = monster->AddComponent<Animator>();
-			mAnimator->CreateAnimation(L"FlyingMLeftMove", mtex
-				, Vector2(0.0f, 0.0f), Vector2(192.0, 192.0f), Vector2::Zero, 4, 0.1f);
-			mAnimator->PlayAnimation(L"FlyingMLeftMove");
-		}
+		//	Animator* mAnimator = monster->AddComponent<Animator>();
+		//	mAnimator->CreateAnimation(L"FlyingMLeftMove", mtex
+		//		, Vector2(0.0f, 0.0f), Vector2(192.0, 192.0f), Vector2::Zero, 4, 0.1f);
+		//	mAnimator->PlayAnimation(L"FlyingMLeftMove");
+		//}
 
-		for (int i = 0; i < 5; i++) {
-			//Creating Special Monster Object
-			monster = object::Instantiate<Monster>(enums::eLayerType::HeavyMonsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
-			monster->AddComponent<MonsterScript>();
+		//for (int i = 0; i < 5; i++) {
+		//	//Creating Special Monster Object
+		//	monster = object::Instantiate<Monster>(enums::eLayerType::HeavyMonsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
+		//	monster->AddComponent<MonsterScript>();
 
-			//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
-			graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"HeavyMRight");
+		//	//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
+		//	graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"HeavyMRight");
 
-			Animator* mAnimator = monster->AddComponent<Animator>();
-			mAnimator->CreateAnimation(L"HeavyMRightMove", mtex
-				, Vector2(0.0f, 0.0f), Vector2(192.0f, 192.0f), Vector2::Zero, 5, 0.1f);
-			mAnimator->PlayAnimation(L"HeavyMRightMove");
-		}
+		//	Animator* mAnimator = monster->AddComponent<Animator>();
+		//	mAnimator->CreateAnimation(L"HeavyMRightMove", mtex
+		//		, Vector2(0.0f, 0.0f), Vector2(192.0f, 192.0f), Vector2::Zero, 5, 0.1f);
+		//	mAnimator->PlayAnimation(L"HeavyMRightMove");
+		//}
 
 		Scene::Initialize();
 	}

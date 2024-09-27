@@ -48,6 +48,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamCollider.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamApplication.h" />
@@ -103,6 +106,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamCollider.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -140,6 +146,9 @@
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{f8c88182-cb8e-4116-8044-8bdcca9c4e0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider">
+      <UniqueIdentifier>{ec831fcb-52de-4495-b06a-45075b3fcdd4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
