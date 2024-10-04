@@ -12,6 +12,10 @@ namespace Jjam
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void SetHp(float demage) { hp -= demage; }
+		float GetHp() { return hp; }
+
 	private:
+		float hp = 100;
 	};
 }

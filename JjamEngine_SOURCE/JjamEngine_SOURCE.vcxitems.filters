@@ -58,6 +58,9 @@
       <Filter>Component\Collider</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamColliderManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamDontDestroyOnLoad.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamApplication.h" />
@@ -123,6 +126,9 @@
       <Filter>Component\Collider</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamColliderManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamDontDestroyOnLoad.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">

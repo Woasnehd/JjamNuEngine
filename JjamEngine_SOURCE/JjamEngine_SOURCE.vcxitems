@@ -24,6 +24,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamColliderManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JjamDontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JjamGameObject.h" />
@@ -52,6 +53,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamColliderManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JjamDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JjamInput.cpp" />

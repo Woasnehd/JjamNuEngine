@@ -12,6 +12,7 @@ namespace Jjam::object
 	static T* Instantiate(Jjam::enums::eLayerType type)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
 
@@ -23,6 +24,7 @@ namespace Jjam::object
 	static T* Instantiate(Jjam::enums::eLayerType type, math::Vector2 position)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
 
@@ -36,5 +38,13 @@ namespace Jjam::object
 
 	static void Destroy(GameObject* obj) {
 		obj->Death();
+	}
+
+	static void DontDestroyOnLoad(GameObject* obj) {
+		Scene* activeScene = SceneManager::GetActiveScene();
+		activeScene->EraseGameObejct(obj);
+
+		Scene* donDestroyOnLoad = SceneManager::GetDestroyOnLoad();
+		donDestroyOnLoad->AddGameObject(obj, obj->GetLayerType());
 	}
 }

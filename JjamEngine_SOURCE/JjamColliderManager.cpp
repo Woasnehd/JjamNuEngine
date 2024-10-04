@@ -9,7 +9,7 @@
 namespace Jjam {
 	bitset<(UINT)enums::eLayerType::Max> ColliderManager::mCollisionLayerMatrix[(UINT)enums::eLayerType::Max] = {};
 	unordered_map<UINT64, bool> ColliderManager::mCollisionMap = {};
-	
+
 	void ColliderManager::Initialize()
 	{
 
@@ -107,7 +107,7 @@ namespace Jjam {
 				left->OnCollisionEnter(right);
 				right->OnCollisionEnter(left);
 
-				it->second = true;
+it->second = true;
 			}
 
 			else
@@ -119,7 +119,6 @@ namespace Jjam {
 
 		else
 		{
-			//충돌을 하지 않은 상태
 			if (it->second == true)
 			{
 				left->OnCollisionExit(right);
@@ -138,12 +137,6 @@ namespace Jjam {
 
 		Vector2 leftSize = left->GetSize() * 100.0f;
 		Vector2 rightSize = right->GetSize() * 100.0f;
-
-		if (fabs(leftPos.x - rightPos.x) < fabs(leftSize.x / 2.0f + rightSize.x / 2.0f)
-			&& fabs(leftPos.y - rightPos.y) < fabs(leftSize.y / 2.0f + rightSize.y / 2.0f))
-		{
-			return true;
-		}
 
 		enums::eColliderType leftType = left->GetColliderType();
 		enums::eColliderType rightType = right->GetColliderType();
@@ -171,11 +164,54 @@ namespace Jjam {
 			}
 		}
 
-		if ((leftType == enums::eColliderType::Circle2D && rightType == enums::eColliderType::Rect2D)
-			|| (leftType == enums::eColliderType::Rect2D && rightType == enums::eColliderType::Circle2D))
-		{
-			// circle - rect
-			// 숙제
+		if (leftType == enums::eColliderType::Circle2D && rightType == enums::eColliderType::Rect2D) {
+			Vector2 circlePos = leftPos + (leftSize / 2.0f);
+			float radius = leftSize.x / 2.0f;
+			// 사각형의 각 변 좌표
+			float rectLeft = rightPos.x - rightSize.x / 2.0f;
+			float rectRight = rightPos.x + rightSize.x / 2.0f;
+			float rectTop = rightPos.y - rightSize.y / 2.0f;
+			float rectBottom = rightPos.y + rightSize.y / 2.0f;
+
+			// 원의 중심과 사각형 사이의 가장 가까운 점 찾기
+			float closestX = max(rectLeft, min(circlePos.x, rectRight));
+			float closestY = max(rectTop, min(circlePos.y, rectBottom));
+
+			// 원의 중심과 사각형 사이의 거리 계산
+			float distanceX = circlePos.x - closestX;
+			float distanceY = circlePos.y - closestY;
+
+			// 거리 제곱 계산 후 반지름 제곱과 비교
+			float distanceSquared = (distanceX * distanceX) + (distanceY * distanceY);
+
+			if (distanceSquared < (radius * radius)) {
+				return true;
+			}
+		}
+
+		if (leftType == enums::eColliderType::Rect2D && rightType == enums::eColliderType::Circle2D) {
+			Vector2 circlePos = rightPos + (rightSize / 2.0f);
+			float radius = rightSize.x / 2.0f;
+			// 사각형의 각 변 좌표
+			float rectLeft = leftPos.x;
+			float rectRight = leftPos.x + leftSize.x;
+			float rectTop = leftPos.y;
+			float rectBottom = leftPos.y + leftSize.y;
+
+			// 원의 중심과 사각형 사이의 가장 가까운 점 찾기
+			float closestX = max(rectLeft, min(circlePos.x, rectRight));
+			float closestY = max(rectTop, min(circlePos.y, rectBottom));
+
+			// 원의 중심과 사각형 사이의 거리 계산
+			float distanceX = circlePos.x - closestX;
+			float distanceY = circlePos.y - closestY;
+
+			// 거리 제곱 계산 후 반지름 제곱과 비교
+			float distanceSquared = (distanceX * distanceX) + (distanceY * distanceY);
+
+			if (distanceSquared < (radius* radius)){
+				return true;
+			}
 		}
 
 		return false;

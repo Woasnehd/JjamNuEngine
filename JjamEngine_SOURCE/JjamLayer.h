@@ -16,7 +16,7 @@ namespace Jjam {
 		virtual void Destroy();
 
 		void AddGameObject(GameObject* gameObject);
-
+		void EraseGameObejct(GameObject* eraseObj);
 		const vector<GameObject*>& GetGameObjects() { return mGameObjects; }
 
 	private:

@@ -6,7 +6,8 @@
 namespace Jjam
 {
 	GameObject::GameObject()
-		:mState(eState::Active)
+		: mState(eState::Active)
+		, mLayerType(enums::eLayerType::None)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();

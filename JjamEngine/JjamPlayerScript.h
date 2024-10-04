@@ -23,6 +23,7 @@ namespace Jjam {
 
 		void BasicAttack();
 		void Skill1();
+		void CreateAttackObject();
 
 		void OnCollisionEnter(class Collider* other) override;
 		void OnCollisionStay(class Collider* other) override;

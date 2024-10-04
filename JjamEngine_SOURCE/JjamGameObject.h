@@ -52,6 +52,8 @@ namespace Jjam
 		eState GetState() { return mState; }
 		bool IsActive() { return mState == eState::Active; }
 		bool IsDead() { return mState == eState::Dead; }
+		void SetLayerType(enums::eLayerType layerType) { mLayerType = layerType; }
+		enums::eLayerType GetLayerType() { return mLayerType; }
 
 	private:
 		void initializeTransform();
@@ -59,5 +61,6 @@ namespace Jjam
 	private:
 		eState mState;
 		vector<Component*> mComponents;
+		enums::eLayerType mLayerType;
 	};
 }

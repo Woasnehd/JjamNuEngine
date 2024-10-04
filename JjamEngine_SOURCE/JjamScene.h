@@ -21,6 +21,7 @@ namespace Jjam
 		virtual void OnExit();
 
 		void AddGameObject(GameObject* gameObj, const enums::eLayerType type);
+		void EraseGameObejct(GameObject* gameObj);
 		Layer* GetLayer(const enums::eLayerType type) { return mLayers[(UINT)type]; }
 
 	private:

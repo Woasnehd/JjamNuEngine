@@ -6,6 +6,7 @@
 #include "JjamLayer.h"
 #include "JjamSceneManager.h"
 #include "JjamCollider.h"
+#include "JjamMonster.h"
 
 namespace Jjam {
 	MonsterScript::MonsterScript()
@@ -30,6 +31,7 @@ namespace Jjam {
 
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* playerLayer = activeScene->GetLayer(enums::eLayerType::Player);
+		Layer* monsterLayer = activeScene->GetLayer(enums::eLayerType::Monsters);
 
 		if (!playerLayer->GetGameObjects().empty())
 		{
@@ -47,6 +49,10 @@ namespace Jjam {
 
 			mpos = mpos + (direction * speed * Time::DeltaTime());
 			mtr->SetPosition(mpos);
+
+			for (int i = 0; i < monsterLayer->GetGameObjects().size(); i++) {
+				
+			}
 		}
 	}
 

@@ -49,6 +49,7 @@ namespace Jjam {
 		Vector2 rightBottom;
 		rightBottom.x = pos.x + offset.x + 100 * GetSize().x;
 		rightBottom.y = pos.y + offset.y + 100 * GetSize().y;
+
 		Ellipse(hdc, pos.x + offset.x
 			, pos.y + offset.y
 			, rightBottom.x

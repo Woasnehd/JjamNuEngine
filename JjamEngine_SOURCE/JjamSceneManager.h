@@ -1,5 +1,6 @@
 #pragma once
 #include "JjamScene.h"
+#include "JjamDontDestroyOnLoad.h"
 
 namespace Jjam
 {
@@ -21,6 +22,7 @@ namespace Jjam
 
 		static Scene* LoadScene(const std::wstring& name);
 		static Scene* GetActiveScene() { return mActiveScene; }
+		static Scene* GetDestroyOnLoad() { return mDontDestroyOnLoad; }
 
 		static void Initialize();
 		static void Update();
@@ -32,5 +34,6 @@ namespace Jjam
 	private:
 		static map<std::wstring, Scene*> mScene;
 		static Scene* mActiveScene;
+		static Scene* mDontDestroyOnLoad;
 	};
 }

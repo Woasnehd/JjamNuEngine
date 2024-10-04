@@ -114,4 +114,10 @@ namespace Jjam {
 
 		mGameObjects.push_back(gameObject);
 	}
+
+	void Layer::EraseGameObejct(GameObject* eraseObj) {
+		erase_if(mGameObjects, [=](GameObject* gameObj) {
+			return gameObj == eraseObj;
+			});
+	}
 }

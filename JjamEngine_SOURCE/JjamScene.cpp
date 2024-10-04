@@ -92,6 +92,11 @@ namespace Jjam
 		mLayers[(UINT)type]->AddGameObject(gameObj);
 	}
 
+	void Scene::EraseGameObejct(GameObject* gameObj) {
+		enums::eLayerType layerType = gameObj->GetLayerType();
+		mLayers[(UINT)layerType]->EraseGameObejct(gameObj);
+	}
+
 	void Scene::createLayers()
 	{
 		mLayers.resize((UINT)enums::eLayerType::Max);

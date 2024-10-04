@@ -56,6 +56,8 @@ namespace Jjam
 
 		//Creating Player Object, Setting Camera Target
 		player = object::Instantiate<Player>(enums::eLayerType::Player);
+		/*object::DontDestroyOnLoad(player);*/
+
 		PlayerScript* pScr = player->AddComponent<PlayerScript>();
 		BoxCollider2D* boxCollider = player->AddComponent<BoxCollider2D>();
 		boxCollider->SetOffSet(math::Vector2(-30.0f, 20.0f));
@@ -142,6 +144,34 @@ namespace Jjam
 
 		if (Input::GetKeyDown(eKeyCode::B)) {
 			SceneManager::LoadScene(L"StartScene");
+		}
+
+		if (Input::GetKeyDown(eKeyCode::LButton)) {
+			Attack* att = object::Instantiate<Attack>(enums::eLayerType::Particle);
+			AttackScript* attSrc = att->AddComponent<AttackScript>();
+			CircleCollider2D* cirCollider = att->AddComponent<CircleCollider2D>();
+			cirCollider->SetOffSet(math::Vector2(-15.0f, -15.0f));
+			cirCollider->SetSize(Vector2(0.3f, 0.3f));
+
+			attSrc->SetPlayer(player);
+
+			graphics::Texture* attTex = Resources::Find<graphics::Texture>(L"BasicAttack");
+			Animator* attAnimator = att->AddComponent<Animator>();
+
+			attAnimator->CreateAnimation(L"Attack", attTex
+				, Vector2(0.0f, 0.0f), Vector2(50.0f, 50.0f), Vector2::Zero, 7, 0.3f);
+
+			attAnimator->PlayAnimation(L"Attack", false);
+
+			Transform* tr = player->GetComponent<Transform>();
+			Vector2 objectPos = tr->GetPosition();
+			objectPos.x += 40;
+			objectPos.y += 100;
+
+			att->GetComponent<Transform>()->SetPosition(objectPos);
+
+			Vector2 mousePos = Input::GetMousePosition();
+			attSrc->mDest = mousePos;
 		}
 	}
 

@@ -99,16 +99,16 @@ namespace Jjam {
 		switch (mDirection)
 		{
 		case AttackScript::eDirection::Left:
-			pos.x -= 100.0f * Time::DeltaTime();
+			pos.x -= 200.0f * Time::DeltaTime();
 			break;
 		case AttackScript::eDirection::Right:
-			pos.x += 100.0f * Time::DeltaTime();
+			pos.x += 200.0f * Time::DeltaTime();
 			break;
 		case AttackScript::eDirection::Down:
-			pos.y += 100.0f * Time::DeltaTime();
+			pos.y += 200.0f * Time::DeltaTime();
 			break;
 		case AttackScript::eDirection::Up:
-			pos.y -= 100.0f * Time::DeltaTime();
+			pos.y -= 200.0f * Time::DeltaTime();
 			break;
 		default:
 			assert(false);
@@ -116,5 +116,20 @@ namespace Jjam {
 		}
 
 		tr->SetPosition(pos);
+	}
+
+	void AttackScript::OnCollisionEnter(Collider* other)
+	{
+
+	}
+
+	void AttackScript::OnCollisionStay(Collider* other)
+	{
+
+	}
+
+	void AttackScript::OnCollisionExit(Collider* other)
+	{
+
 	}
 }
