@@ -39,7 +39,13 @@ namespace Jjam
 	void PlayScene::Initialize()
 	{
 		ColliderManager::CollisionLayerCheck(enums::eLayerType::Player, enums::eLayerType::Monsters, true);
-		
+		ColliderManager::CollisionLayerCheck(enums::eLayerType::Monsters, enums::eLayerType::Particle, true);
+
+		//Creating Camera
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+
 		//Creating Background
 		pbg = object::Instantiate<Background>(enums::eLayerType::Background, Vector2(0.0f, 0.0f));
 		SpriteRenderer* bsr = pbg->AddComponent<SpriteRenderer>();
@@ -49,10 +55,6 @@ namespace Jjam
 		bsr->SetTexture(pbgtex);
 		bsr->SetSize(Vector2(2.5f, 2.5f));
 
-		//Creating Camera
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
-		Camera* cameraComp = camera->AddComponent<Camera>();
-		renderer::mainCamera = cameraComp;
 
 		//Creating Player Object, Setting Camera Target
 		player = object::Instantiate<Player>(enums::eLayerType::Player);
@@ -92,7 +94,7 @@ namespace Jjam
 		//Setting EventFunction
 		pAnimator->GetCompleteEvent(L"Skill1") = bind(&PlayerScript::Skill1, pScr);
 
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < mMonsterCount; i++) {
 			//Creating Basic Monster Object
 			monster = object::Instantiate<Monster>(enums::eLayerType::Monsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
 			monster->AddComponent<MonsterScript>();
@@ -109,22 +111,22 @@ namespace Jjam
 			mAnimator->PlayAnimation(L"FlyingMLeftMove");
 		}
 
-		for (int i = 0; i < 1; i++) {
-			//Creating Special Monster Object
-			monster = object::Instantiate<Monster>(enums::eLayerType::Monsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
-			monster->AddComponent<MonsterScript>();
+		//for (int i = 0; i < 1; i++) {
+		//	//Creating Special Monster Object
+		//	monster = object::Instantiate<Monster>(enums::eLayerType::Monsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
+		//	monster->AddComponent<MonsterScript>();
 
-			BoxCollider2D* mBoxCollider = monster->AddComponent<BoxCollider2D>();
-			mBoxCollider->SetOffSet(math::Vector2(-45.0f, -30.0f));
+		//	BoxCollider2D* mBoxCollider = monster->AddComponent<BoxCollider2D>();
+		//	mBoxCollider->SetOffSet(math::Vector2(-45.0f, -30.0f));
 
-			//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
-			graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"HeavyMRight");
+		//	//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
+		//	graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"HeavyMRight");
 
-			Animator* mAnimator = monster->AddComponent<Animator>();
-			mAnimator->CreateAnimation(L"HeavyMRightMove", mtex
-				, Vector2(0.0f, 0.0f), Vector2(192.0f, 192.0f), Vector2::Zero, 5, 0.1f);
-			mAnimator->PlayAnimation(L"HeavyMRightMove");
-		}
+		//	Animator* mAnimator = monster->AddComponent<Animator>();
+		//	mAnimator->CreateAnimation(L"HeavyMRightMove", mtex
+		//		, Vector2(0.0f, 0.0f), Vector2(192.0f, 192.0f), Vector2::Zero, 5, 0.1f);
+		//	mAnimator->PlayAnimation(L"HeavyMRightMove");
+		//}
 
 		Scene::Initialize();
 	}
@@ -146,32 +148,25 @@ namespace Jjam
 			SceneManager::LoadScene(L"StartScene");
 		}
 
-		if (Input::GetKeyDown(eKeyCode::LButton)) {
-			Attack* att = object::Instantiate<Attack>(enums::eLayerType::Particle);
-			AttackScript* attSrc = att->AddComponent<AttackScript>();
-			CircleCollider2D* cirCollider = att->AddComponent<CircleCollider2D>();
-			cirCollider->SetOffSet(math::Vector2(-15.0f, -15.0f));
-			cirCollider->SetSize(Vector2(0.3f, 0.3f));
+		if (mMonsterCount < 40) {
+			for (int i = mMonsterCount; i < 40; i++) {
+				//Creating Basic Monster Object
+				monster = object::Instantiate<Monster>(enums::eLayerType::Monsters, Vector2(rand() % 1500 + 1, rand() % 700 + 1));
+				monster->AddComponent<MonsterScript>();
 
-			attSrc->SetPlayer(player);
+				CircleCollider2D* mBoxCollider = monster->AddComponent<CircleCollider2D>();
+				mBoxCollider->SetOffSet(math::Vector2(-45.0f, -30.0f));
 
-			graphics::Texture* attTex = Resources::Find<graphics::Texture>(L"BasicAttack");
-			Animator* attAnimator = att->AddComponent<Animator>();
+				//Rendering Monster Object, Creating Monster's Left Moving Motion Animation
+				graphics::Texture* mtex = Resources::Find<graphics::Texture>(L"FlyingMLeft");
 
-			attAnimator->CreateAnimation(L"Attack", attTex
-				, Vector2(0.0f, 0.0f), Vector2(50.0f, 50.0f), Vector2::Zero, 7, 0.3f);
+				Animator* mAnimator = monster->AddComponent<Animator>();
+				mAnimator->CreateAnimation(L"FlyingMLeftMove", mtex
+					, Vector2(0.0f, 0.0f), Vector2(192.0, 192.0f), Vector2::Zero, 4, 0.1f);
+				mAnimator->PlayAnimation(L"FlyingMLeftMove");
 
-			attAnimator->PlayAnimation(L"Attack", false);
-
-			Transform* tr = player->GetComponent<Transform>();
-			Vector2 objectPos = tr->GetPosition();
-			objectPos.x += 40;
-			objectPos.y += 100;
-
-			att->GetComponent<Transform>()->SetPosition(objectPos);
-
-			Vector2 mousePos = Input::GetMousePosition();
-			attSrc->mDest = mousePos;
+				mMonsterCount++;
+			}
 		}
 	}
 

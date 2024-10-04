@@ -4,6 +4,10 @@
 #include "JjamObject.h"
 #include "JjamGameObject.h"
 #include "JjamTransform.h"
+#include "JjamCollider.h"
+#include "JjamMonster.h"
+#include "JjamSceneManager.h"
+#include "JjamPlayScene.h"
 
 namespace Jjam {
 	AttackScript::AttackScript()
@@ -120,7 +124,24 @@ namespace Jjam {
 
 	void AttackScript::OnCollisionEnter(Collider* other)
 	{
+		PlayScene* playScene = dynamic_cast<PlayScene*>(SceneManager::GetActiveScene());
+		int num = playScene->GetMonsterCount();
 
+		GameObject* otherObject = other->GetOwner();
+
+		Monster* monster = dynamic_cast<Monster*>(otherObject);
+		if (monster != nullptr)
+		{
+			float damage = 20.0f;
+			monster->SetHp(damage);
+
+			if (monster->GetHp() <= 0.0f)
+			{
+				object::Destroy(monster);
+				num--;
+				playScene->SetMonsterCount(num);
+			}
+		}
 	}
 
 	void AttackScript::OnCollisionStay(Collider* other)

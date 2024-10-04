@@ -107,7 +107,7 @@ namespace Jjam {
 				left->OnCollisionEnter(right);
 				right->OnCollisionEnter(left);
 
-it->second = true;
+				it->second = true;
 			}
 
 			else

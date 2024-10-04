@@ -18,7 +18,6 @@ namespace Jjam
 		Resources::Load<graphics::Texture>(L"PlayerD", L"..\\Resources\\DownEffect.png");
 
 		Resources::Load<graphics::Texture>(L"FlyingMLeft", L"..\\Resources\\FlyingMonster.png");
-		Resources::Load<graphics::Texture>(L"HeavyMRight", L"..\\Resources\\HeavyMonster.png");
 
 		Resources::Load<graphics::Texture>(L"BasicAttack", L"..\\Resources\\BasicAttackObject.png");
 	}

@@ -80,7 +80,7 @@ namespace Jjam {
 
         if (Input::GetKeyUp(eKeyCode::LButton))
         {
-            mState = PlayerScript::eState::Idle;
+            mState = PlayerScript::eState::Move;
             mAnimator->PlayAnimation(L"Idle");
         }
     }
@@ -110,10 +110,10 @@ namespace Jjam {
 
     void PlayerScript::idle()
     {
-        /*if (Input::GetKey(eKeyCode::LButton)) {
+        if (Input::GetKey(eKeyCode::LButton)) {
             mState = PlayerScript::eState::Attack;
             BasicAttack();            
-        }*/
+        }
 
         if (Input::GetKey(eKeyCode::D))
         {
@@ -148,20 +148,20 @@ namespace Jjam {
 
         if (Input::GetKey(eKeyCode::D))
         {
-            pos.x += 100.0f * Time::DeltaTime();
+            pos.x += 200.0f * Time::DeltaTime();
         }
         if (Input::GetKey(eKeyCode::A))
         {
-            pos.x -= 100.0f * Time::DeltaTime();
+            pos.x -= 200.0f * Time::DeltaTime();
         }
 
         if (Input::GetKey(eKeyCode::W))
         {
-            pos.y -= 100.0f * Time::DeltaTime();
+            pos.y -= 200.0f * Time::DeltaTime();
         }
         if (Input::GetKey(eKeyCode::S))
         {
-            pos.y += 100.0f * Time::DeltaTime();
+            pos.y += 200.0f * Time::DeltaTime();
         }
 
         if (Input::GetKey(eKeyCode::E))

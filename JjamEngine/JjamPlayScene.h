@@ -17,10 +17,15 @@ namespace Jjam
 		void OnEnter() override;
 		void OnExit() override;
 
+		int GetMonsterCount() { return mMonsterCount; }
+		void SetMonsterCount(int num) { mMonsterCount = num; }
+
 	private:
 		class Background* pbg;
 		class Player* player;
 		class Monster* monster;
 		class BasicAttack* attack;
+
+		int mMonsterCount = 40;
 	};
 }
